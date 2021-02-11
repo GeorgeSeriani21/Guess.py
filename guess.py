@@ -1,13 +1,13 @@
 import random
 
-
+#get number
 secretNumber = random.randint(1, 10)
 
 
 def play_again():
     print('play again (yes or no): ')
     return input('').lower().startswith('y')
-
+#get guess
 def get_guess():
     global secretNumber
     winner = True
@@ -18,7 +18,7 @@ def get_guess():
         try:
             guess = int(input('Guess a number: '))
 
-
+           
             if guess == secretNumber:
                 print(f'YES! the secret number was {secretNumber}')
                 winner = False
@@ -37,9 +37,10 @@ def get_guess():
             if guesses == 0:
                 print(f'sorry you ran out of tries, the answer was {secretNumber}')
                 winner = False
+        #accept non int inputs
         except ValueError:
             print('invalid response')
-
+    #ask to play again when finished
     if winner == False:
         if play_again():
             winner = True
